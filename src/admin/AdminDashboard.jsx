@@ -3,7 +3,8 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import "./AdminDashboard.css";
 
-const AdminDashboard = () => {
+const AdminDashboard = ({ onLogout, theme, toggleTheme }) => {
+  // receive props
   const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -57,8 +58,42 @@ const AdminDashboard = () => {
 
   return (
     <div className="admin-dashboard">
-      <h1>Contact Messages</h1>
+      {/* Header with buttons */}
+      <div
+        className="dashboard-header"
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "1.5rem",
+        }}
+      >
+        <h1>Contact Messages</h1>
+        <div>
+          <button
+            className="btn"
+            onClick={toggleTheme}
+            style={{ marginRight: "10px", padding: "6px 12px" }}
+          >
+            {theme === "dark" ? "🌞 Light Mode" : "🌙 Dark Mode"}
+          </button>
+          <button
+            onClick={onLogout}
+            style={{
+              padding: "6px 12px",
+              backgroundColor: "#f44336",
+              color: "#fff",
+              border: "none",
+              borderRadius: "4px",
+              cursor: "pointer",
+            }}
+          >
+            Logout
+          </button>
+        </div>
+      </div>
 
+      {/* Search and Sort */}
       <div className="controls">
         <input
           type="text"
@@ -71,6 +106,7 @@ const AdminDashboard = () => {
         </button>
       </div>
 
+      {/* Contacts Table */}
       <motion.table
         className="contacts-table"
         initial={{ opacity: 0 }}

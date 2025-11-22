@@ -19,6 +19,47 @@ body[data-theme="light"] .admin-dashboard {
     color: #fff;
 }
 
+[data-theme="light"] .btn {
+    background-color: #000;
+    color: #fff;
+}
+
+.btn {
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* AdminLogin.css */
+.admin-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.admin-login input {
+    margin: 10px 0;
+    padding: 8px 12px;
+    font-size: 16px;
+}
+
+.admin-login button {
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.admin-login p {
+    color: red;
+    margin-top: 10px;
+}
+
 .admin-dashboard {
     background-size: cover;
     background-position: center;
